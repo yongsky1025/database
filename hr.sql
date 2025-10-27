@@ -58,6 +58,29 @@ SELECT e.EMPLOYEE_ID ,e.FIRST_NAME ,e.JOB_ID, e.SALARY * COMMISSION_PCT AS COMMI
 
 
 
+-- 함수
+-- 18. FIRST_NAME이 Curtis 인 사람의 first_name, last_name, email, phone_number, job_id 조회
+--		단, job_id 결과는 소문자로 출력
+SELECT e.FIRST_NAME, e.LAST_NAME, e.EMAIL, e.PHONE_NUMBER, LOWER(e.JOB_ID)
+FROM EMPLOYEES e
+WHERE e.FIRST_NAME = 'Curtis';
+
+-- 19. 부서번호가 60,70,80,90인 사원들의 사원번호, first_name, hire_date, job_id 조회
+--		단, job_id가 IT_PROG인 사원의 경우 프로그래머로 변경하여 출력
+SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.HIRE_DATE, REPLACE(e.JOB_ID, 'IT_PROG', '프로그래머') 
+FROM EMPLOYEES e
+WHERE e.DEPARTMENT_ID IN (60,70,80,90);
+
+-- 20. job_id가 AD_PRES, PU_CLERK인 사원들의 사원번호,FIRST_NAME, LAST_NAME, 부서번호, job_id 조회
+--		단, 사원명은 FIRST_NAME과 LAST_NAME을 연결하여 출력하시오
+SELECT e.EMPLOYEE_ID, concat(e.FIRST_NAME, concat(' ',e.LAST_NAME)), e.DEPARTMENT_ID, e.JOB_ID 
+FROM EMPLOYEES e
+WHERE e.JOB_ID IN('AD_PRES', 'PU_CLERK');
+
+SELECT e.EMPLOYEE_ID, e.FIRST_NAME || ' ' || e.LAST_NAME, e.DEPARTMENT_ID, e.JOB_ID 
+FROM EMPLOYEES e
+WHERE e.JOB_ID IN('AD_PRES', 'PU_CLERK');
+
 
 
 
