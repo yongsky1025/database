@@ -4,5 +4,12 @@
 ALTER SESSION SET "_oracle_script"=TRUE;
 
 --@C:\Users\YYC\Desktop\soldesk\sample\db-sample-schemas-main\human_resources\hr_install.SQL
+
 --@C:\app\YYC\product\21c\dbhomeXE\rdbms\admin\scott.sql
 --sys AS sysdba
+
+-- 권한부여 : GRANT 부여권한 TO 유저
+GRANT CREATE VIEW TO scott;
+
+GRANT CREATE synonym TO scott;
+GRANT CREATE PUBLIC synonym TO scott;
