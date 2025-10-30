@@ -123,31 +123,93 @@ create database if not exists EXAM;
 use EXAM;
 
 -- 테이블 생성
+-- 데이터 유형
+-- 숫자형 : INT, TINYINT(1 Byte), SMALLINT(2 Byte), MEDIUMINT(3 Byte), INT(4 Byte) , BIGINT(8 Byte)
+-- 실수형 : 1. 고정소숫점 방식
+--  		 DECIMAL / NUMERIC
+--		  2. 부동소숫점 방식
+--    		 FLOAT, DOUBLE
+-- 문자형 : CHAR (n) - 고정길이 문자열
+-- 		  VCHAR(n) 
+-- 날짜형 : TIME / DATE / DATETIME / TIMESTAMP
+
+
+-- 테이블 생성
 create table TABLE1(
 	COL1 INT,
 	COL2 VARCHAR(50),
 	COL3 DATETIME
 );
 
+
 create table TABLE2(
-	COL1 INT auto_increment primary key,
+	COL1 INT auto_increment primary KEY, -- oracle은 SEQUENCE
 	COL2 VARCHAR(50),
 	COL3 DATETIME
 );
 
-
-insert into TABLE2(COL2, COL3) VALUES('TEST', '2025-10-29');
-
+insert into TABLE2(COL2,COL3) VALUES('TEST','2025-10-29');
+insert into TABLE2(col1,COL2,COL3) VALUES(3,'TEST','2025-10-30'); -- 첫 파라미터 증감부분.
 select * from TABLE2;
 
 
+-- 현재 auto_increment로 생성된 마지막 값 확인
+select LAST_INSERT_ID();
+
+-- auto_increment 시작값 변경
+alter table TABLE2 auto_increment = 100;
+
+-- auto_increment 증가값 변경
+-- set @@AUTO_INCREMENT_INCREMENT =1;
+
+create table EXAM_INSERT_SELECT_FROM(
+
+	COL1 int,
+	COL2 VARCHAR(10)
+);
+
+create table EXAM_INSERT_SELECT_TO(
+
+	COL1 INT,
+	COL2 VARCHAR(10)
+);
+
+insert into EXAM_INSERT_SELECT_FROM(COL1,COL2) values(1,'Do');
+insert into EXAM_INSERT_SELECT_FROM(COL1,COL2) values(2,'It');
+insert into EXAM_INSERT_SELECT_FROM(COL1,COL2) values(3,'MySQL');
+
+-- EXAM_INSERT_SELECT_FROM => EXAM_INSERT_SELECT_TO 옮기기
+
+insert into EXAM_INSERT_SELECT_TO select * from EXAM_INSERT_SELECT_FROM;
+select * from EXAM_INSERT_SELECT_TO;
+create table EXAM_SELECT_NEW as select * from EXAM_INSERT_SELECT_FROM;
+select * from EXAM.EXAM_SELECT_NEW;
+
+create table exam_DATE_TABLE(
+	COL1 DATE, COL2 TIME , COL3 DATETIME, COL4 timestamp
+);
+
+insert into EXAM.exam_DATE_TABLE values (now(),now(),now(),now()); -- now == > sysdate 
+select * from EXAM.exam_DATE_TABLE edt;
 
 
+-- 사용자 생성
 
+-- localhost : 내컴퓨터(로컬 접속만 가능)
+-- '%' : 모든 IP에서 접속가능(외부 접속 허용)
 
+CREATE USER 'TEST1'@'localhost' IDENTIFIED BY '12345';
+-- CREATE USER 'TEST1'@'%' IDENTIFIED BY '12345';
 
+-- 권한 부여
 
+-- grant 권한목록 on 데이터베이스.테이블 to '사용자이름'@'호스트'
 
+-- grant select, insert, update on exam.table1 to 'TEST1'@'localhost';
+
+grant all privileges on exam.* TO 'TEST1'@'localhost';
+-- 변경사항 반영
+flush privileges;
 
 
 
