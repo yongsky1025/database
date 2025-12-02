@@ -211,11 +211,34 @@ grant all privileges on exam.* TO 'TEST1'@'localhost';
 -- 변경사항 반영
 flush privileges;
 
+-- 사용자 삭제
+drop user 'TEST1'@'localhost';
+
+-- 비밀번호 변경
+ALER USER 'TEST1'@'%' IDENTIFIED BY '12345'; 
 
 
 
+-- 학사 예제 사용자 생성
+
+CREATE USER 'javadb'@'localhost' IDENTIFIED BY '12345';
+-- CREATE USER 'TEST1'@'%' IDENTIFIED BY '12345';
+
+grant all privileges on exam.* TO 'javadb'@'localhost';
+
+grant all privileges on springdb.* TO 'javadb'@'localhost';
+
+-- 변경사항 반영
+flush privileges;
 
 
+use springdb;
+insert into stutbl(name) values('홍길동');
+
+select * from stutbl;
+
+
+ALTER TABLE memotbl AUTO_INCREMENT = 1;
 
 
 

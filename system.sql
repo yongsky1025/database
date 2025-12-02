@@ -3,9 +3,9 @@
 -- hr 사용자 생성 => c##hr
 ALTER SESSION SET "_oracle_script"=TRUE;
 
---@C:\Users\YYC\Desktop\soldesk\sample\db-sample-schemas-main\human_resources\hr_install.SQL
+--@C:\Users\yyc\Downloads\db-sample-schemas-main\db-sample-schemas-main\human_resources\hr_install.sql
 
---@C:\app\YYC\product\21c\dbhomeXE\rdbms\admin\scott.sql
+--@C:\app\yyc\product\21c\dbhomeXE\rdbms\admin\scott.sql
 --sys AS sysdba
 
 -- 권한부여 : GRANT 부여권한 TO 유저
@@ -44,6 +44,7 @@ GRANT CONNECT, RESOURCE TO TEST2;
 
 
 -- 사용자 생성
+-- 대소문자 구별안함 / 비밀번호만 구별함
 ALTER SESSION SET "_oracle_script"=TRUE;
 
 CREATE USER TEST3 IDENTIFIED BY 12345
@@ -67,8 +68,15 @@ DROP USER test3 CASCADE;
 
 
 
+-- 학사 예제 설계
+ALTER SESSION SET "_oracle_script"=TRUE;
 
+CREATE USER javadb IDENTIFIED BY 12345
+DEFAULT TABLESPACE USERS 
+TEMPORARY TABLESPACE TEMP
+QUOTA 10M ON USERS;
 
+GRANT CONNECT, RESOURCE TO javadb;
 
 
 

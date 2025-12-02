@@ -1467,7 +1467,7 @@ DROP SYNONYM E;
 -- 2. 중복값을 허용하지 않는 unique
 -- 3. 유일하게 하나만 존재하는 primary key
 -- 4. 다른 테이블과 관계를 맺는 foreign key
--- 5. 설정한 조건식으르 만족하는 데이터 CHECK 
+-- 5. 설정한 조건식을 만족하는 데이터 CHECK 
 -- 6. 기본값을 지정하는 DEFAULT
 
 -- 데이터 무결성 : 데이터 정확성과 일관성 보장
@@ -1703,7 +1703,7 @@ CREATE TABLE TABLE_CHECK(
 );
 
 -- 체크 제약조건(SCOTT.TBLCK_LOGINPW_CK)이 위배되었습니다
-INSERT INTO TABLE_CHECK VALUIES('test01','tes','010-1234-7869');
+INSERT INTO TABLE_CHECK VALUES('test01','tes','010-1234-7869');
 
 DROP TABLE TABLE_CHECK;
 

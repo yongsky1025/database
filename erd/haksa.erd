@@ -4,9 +4,9 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -649,
-    "scrollLeft": -277,
-    "zoomLevel": 0.85,
+    "scrollTop": -520.242,
+    "scrollLeft": -321.4318,
+    "zoomLevel": 1,
     "show": 431,
     "database": 8,
     "databaseName": "",
@@ -171,11 +171,13 @@
         "name": "ATTEND",
         "comment": "",
         "columnIds": [
+          "JQbse2KwjC4AXSohEebDU",
           "cAnX8OAKX4irEOv_geVbM",
           "d7nR97Bg-SXxjA2dfyF3N",
           "wFpLGDS73LgV5r26JARav"
         ],
         "seqColumnIds": [
+          "JQbse2KwjC4AXSohEebDU",
           "cAnX8OAKX4irEOv_geVbM",
           "ayizqnfi3i7pyyyi_rU20",
           "d7nR97Bg-SXxjA2dfyF3N",
@@ -190,7 +192,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1761815794881,
+          "updateAt": 1761872653833,
           "createAt": 1761815626207
         }
       }
@@ -655,6 +657,26 @@
           "updateAt": 1761815726202,
           "createAt": 1761815726202
         }
+      },
+      "JQbse2KwjC4AXSohEebDU": {
+        "id": "JQbse2KwjC4AXSohEebDU",
+        "tableId": "Hl7e9Sp9i_4AVjVCJX-ym",
+        "name": "att_num",
+        "comment": "",
+        "dataType": "NUMBER",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1761872684288,
+          "createAt": 1761872652564
+        }
       }
     },
     "relationshipEntities": {
@@ -818,7 +840,7 @@
             "wFpLGDS73LgV5r26JARav"
           ],
           "x": 803.8652999999999,
-          "y": 1179.292,
+          "y": 1191.292,
           "direction": 2
         },
         "meta": {
